@@ -34,7 +34,7 @@ const destinations = [
     description: "Naturaleza salvaje, onsen y paisajes de ensueño en cada estación.",
     price: "3,290",
     duration: "10 días",
-    image: "https://images.unsplash.com/photo-1551918120-9739cb430c6d?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?q=80&w=800&auto=format&fit=crop",
     highlight: "Naturaleza & Onsen",
   },
   {
