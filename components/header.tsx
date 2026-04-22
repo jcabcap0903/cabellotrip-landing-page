@@ -24,36 +24,26 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
-            <Link 
-              href="#destinations" 
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
+            <Link href="#destinations" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Destinos
             </Link>
-            <Link 
-              href="#about" 
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
+            <Link href="#about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Nosotros
             </Link>
-            <Link 
-              href="#testimonials" 
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
+            <Link href="#testimonials" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Testimonios
             </Link>
-            <Link 
-              href="#contact" 
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
+            <Link href="#contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Contacto
             </Link>
           </nav>
 
-          {/* CTA Button */}
+          {/* CTA Button Desktop - Enlace directo URL Completa */}
           <div className="hidden lg:block">
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6">
-              Reserva tu Consulta
+            <Button asChild className="bg-[#B31919] hover:bg-[#8B1414] text-white rounded-full px-6">
+              <a href="https://v0-cabellotrip-landing-page.vercel.app/#contact">
+                Reserva tu Consulta
+              </a>
             </Button>
           </div>
 
@@ -73,34 +63,41 @@ export function Header() {
             <nav className="flex flex-col gap-4">
               <Link 
                 href="#destinations" 
-                className="text-foreground hover:text-primary transition-colors py-2"
+                className="text-foreground hover:text-primary transition-colors py-2 font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Destinos
               </Link>
               <Link 
                 href="#about" 
-                className="text-foreground hover:text-primary transition-colors py-2"
+                className="text-foreground hover:text-primary transition-colors py-2 font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Nosotros
               </Link>
               <Link 
                 href="#testimonials" 
-                className="text-foreground hover:text-primary transition-colors py-2"
+                className="text-foreground hover:text-primary transition-colors py-2 font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Testimonios
               </Link>
               <Link 
                 href="#contact" 
-                className="text-foreground hover:text-primary transition-colors py-2"
+                className="text-foreground hover:text-primary transition-colors py-2 font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contacto
               </Link>
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full mt-4 w-full">
-                Reserva tu Consulta
+              
+              {/* CTA Button Mobile - Enlace directo URL Completa */}
+              <Button asChild className="bg-[#B31919] hover:bg-[#8B1414] text-white rounded-full mt-4 w-full py-6 text-lg font-bold">
+                <a 
+                  href="https://v0-cabellotrip-landing-page.vercel.app/#contact" 
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Reserva tu Consulta
+                </a>
               </Button>
             </nav>
           </div>
