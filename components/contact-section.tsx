@@ -1,35 +1,22 @@
 "use client"
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { ArrowRight, Mail, Phone, MapPin } from "lucide-react"
+import { Mail, Phone, MapPin } from "lucide-react"
 
 export function ContactSection() {
-  const [email, setEmail] = useState("")
-  const [isSubmitted, setIsSubmitted] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (email) {
-      setIsSubmitted(true)
-      setEmail("")
-      setTimeout(() => setIsSubmitted(false), 3000)
-    }
-  }
-
+  // Eliminamos el estado anterior porque Formspree gestiona el envío directamente
+  
   return (
     <section id="contact" className="py-24 lg:py-32 bg-secondary relative overflow-hidden">
-      {/* Background elements */}
+      {/* Elementos de fondo */}
       <div className="absolute top-0 left-0 right-0 h-px bg-border" />
       <div className="absolute inset-0 paper-texture pointer-events-none" />
       
-      {/* Decorative circle */}
+      {/* Círculo decorativo */}
       <div className="absolute -left-48 bottom-0 w-96 h-96 rounded-full border border-accent/10" />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-          {/* Left Column - Contact Info */}
+          {/* Columna Izquierda - Info de Contacto */}
           <div className="space-y-10">
             <div className="space-y-4">
               <span className="text-xs uppercase tracking-widest text-muted-foreground">
@@ -44,7 +31,7 @@ export function ContactSection() {
               </p>
             </div>
 
-            {/* Contact Details */}
+            {/* Detalles de contacto */}
             <div className="space-y-6">
               <a 
                 href="mailto:hola@cabellotrip.com" 
@@ -83,7 +70,7 @@ export function ContactSection() {
               </div>
             </div>
 
-            {/* Japanese Text Decoration */}
+            {/* Decoración Japonesa */}
             <div className="pt-8">
               <p className="text-6xl font-serif text-accent/20">旅</p>
               <p className="text-sm text-muted-foreground mt-2">
@@ -92,102 +79,74 @@ export function ContactSection() {
             </div>
           </div>
 
-          {/* Right Column - Newsletter Form */}
+          {/* Columna Derecha - Formulario */}
           <div className="flex items-center">
-            <div className="w-full bg-background rounded-2xl p-8 lg:p-12 border border-border">
+            <div className="w-full bg-background rounded-2xl p-8 lg:p-12 border border-border shadow-sm">
               <div className="space-y-6">
                 <div>
                   <h3 className="text-2xl font-serif text-foreground mb-2">
-                    Suscríbete a nuestra newsletter
+                    Reserva tu consulta gratuita
                   </h3>
                   <p className="text-muted-foreground text-sm">
-                    Recibe ofertas exclusivas, guías de viaje y las últimas 
-                    novedades sobre Japón directamente en tu bandeja de entrada.
+                    Cuéntanos tus planes y te responderemos en menos de 24 horas para empezar a diseñar tu itinerario.
                   </p>
                 </div>
 
-<form 
-  action="https://formspree.io/f/xvzdwnzo" 
-  method="POST"
-  className="space-y-6"
->
-  <div>
-    <label htmlFor="full-name" className="block text-sm font-medium mb-2">Nombre completo</label>
-    <input 
-      type="text" 
-      name="name" // IMPORTANTE: El atributo name es lo que Formspree lee
-      id="full-name" 
-      required 
-      className="w-full px-4 py-3 rounded-lg border border-border bg-background"
-      placeholder="Ej: Juan Pérez"
-    />
-  </div>
+                <form 
+                  action="https://formspree.io/f/xvzdwnzo" 
+                  method="POST"
+                  className="space-y-4"
+                >
+                  <div>
+                    <label htmlFor="full-name" className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Nombre completo</label>
+                    <input 
+                      type="text" 
+                      name="name" 
+                      id="full-name" 
+                      required 
+                      className="w-full px-4 py-3 rounded-lg border border-border bg-secondary/50 focus:bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                      placeholder="Ej: Juan Pérez"
+                    />
+                  </div>
 
-  <div>
-    <label htmlFor="email" className="block text-sm font-medium mb-2">Correo electrónico</label>
-    <input 
-      type="email" 
-      name="email" // IMPORTANTE
-      id="email" 
-      required 
-      className="w-full px-4 py-3 rounded-lg border border-border bg-background"
-      placeholder="juan@ejemplo.com"
-    />
-  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Correo electrónico</label>
+                    <input 
+                      type="email" 
+                      name="email" 
+                      id="email" 
+                      required 
+                      className="w-full px-4 py-3 rounded-lg border border-border bg-secondary/50 focus:bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                      placeholder="juan@ejemplo.com"
+                    />
+                  </div>
 
-  <div>
-    <label htmlFor="message" className="block text-sm font-medium mb-2">¿Cómo podemos ayudarte?</label>
-    <textarea 
-      name="message" // IMPORTANTE
-      id="message" 
-      rows={4} 
-      required 
-      className="w-full px-4 py-3 rounded-lg border border-border bg-background"
-      placeholder="Cuéntanos sobre tu viaje soñado a Japón..."
-    ></textarea>
-  </div>
+                  <div>
+                    <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">¿Cómo podemos ayudarte?</label>
+                    <textarea 
+                      name="message" 
+                      id="message" 
+                      rows={4} 
+                      required 
+                      className="w-full px-4 py-3 rounded-lg border border-border bg-secondary/50 focus:bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
+                      placeholder="Cuéntanos sobre tu viaje soñado..."
+                    ></textarea>
+                  </div>
 
-  <button 
-    type="submit" 
-    className="w-full bg-[#B31919] text-white py-4 rounded-full font-bold hover:bg-[#8B1414] transition-colors shadow-lg"
-  >
-    Enviar solicitud de consulta
-  </button>
-</form>
+                  <button 
+                    type="submit" 
+                    className="w-full bg-[#B31919] text-white py-4 rounded-full font-bold hover:bg-[#8B1414] active:scale-[0.98] transition-all shadow-md hover:shadow-lg"
+                  >
+                    Enviar solicitud de consulta
+                  </button>
+                </form>
 
-                <p className="text-xs text-muted-foreground text-center">
-                  Al suscribirte, aceptas nuestra{" "}
+                <p className="text-[10px] text-muted-foreground text-center">
+                  Al enviar el formulario, aceptas nuestra{" "}
                   <a href="#" className="underline hover:text-foreground transition-colors">
                     política de privacidad
                   </a>
                 </p>
-
-                {/* Decorative thin border */}
-                <div className="pt-6">
-                  <div className="h-px w-full bg-border" />
-                </div>
-
-                {/* Quick Links */}
-                <div className="flex flex-wrap gap-3 pt-4">
-                  <a 
-                    href="#" 
-                    className="px-4 py-2 rounded-full border border-border text-sm text-muted-foreground hover:border-primary hover:text-primary transition-colors"
-                  >
-                    FAQ
-                  </a>
-                  <a 
-                    href="#" 
-                    className="px-4 py-2 rounded-full border border-border text-sm text-muted-foreground hover:border-primary hover:text-primary transition-colors"
-                  >
-                    Guía de Japón
-                  </a>
-                  <a 
-                    href="#" 
-                    className="px-4 py-2 rounded-full border border-border text-sm text-muted-foreground hover:border-primary hover:text-primary transition-colors"
-                  >
-                    Blog
-                  </a>
-                </div>
               </div>
             </div>
           </div>
