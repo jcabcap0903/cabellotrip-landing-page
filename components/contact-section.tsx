@@ -106,35 +106,54 @@ export function ContactSection() {
                   </p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="relative">
-                    <Input
-                      type="email"
-                      placeholder="Tu correo electrónico"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      className="h-14 rounded-xl bg-secondary border-border pr-4 pl-4 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary"
-                    />
-                  </div>
-                  <Button
-                    type="submit"
-                    className="w-full h-14 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground group"
-                    disabled={isSubmitted}
-                  >
-                    {isSubmitted ? (
-                      <span className="flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-primary-foreground animate-pulse" />
-                        ¡Gracias por suscribirte!
-                      </span>
-                    ) : (
-                      <>
-                        Suscribirme
-                        <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-                      </>
-                    )}
-                  </Button>
-                </form>
+<form 
+  action="https://formspree.io/f/xvzdwnzo" 
+  method="POST"
+  className="space-y-6"
+>
+  <div>
+    <label htmlFor="full-name" className="block text-sm font-medium mb-2">Nombre completo</label>
+    <input 
+      type="text" 
+      name="name" // IMPORTANTE: El atributo name es lo que Formspree lee
+      id="full-name" 
+      required 
+      className="w-full px-4 py-3 rounded-lg border border-border bg-background"
+      placeholder="Ej: Juan Pérez"
+    />
+  </div>
+
+  <div>
+    <label htmlFor="email" className="block text-sm font-medium mb-2">Correo electrónico</label>
+    <input 
+      type="email" 
+      name="email" // IMPORTANTE
+      id="email" 
+      required 
+      className="w-full px-4 py-3 rounded-lg border border-border bg-background"
+      placeholder="juan@ejemplo.com"
+    />
+  </div>
+
+  <div>
+    <label htmlFor="message" className="block text-sm font-medium mb-2">¿Cómo podemos ayudarte?</label>
+    <textarea 
+      name="message" // IMPORTANTE
+      id="message" 
+      rows={4} 
+      required 
+      className="w-full px-4 py-3 rounded-lg border border-border bg-background"
+      placeholder="Cuéntanos sobre tu viaje soñado a Japón..."
+    ></textarea>
+  </div>
+
+  <button 
+    type="submit" 
+    className="w-full bg-[#B31919] text-white py-4 rounded-full font-bold hover:bg-[#8B1414] transition-colors shadow-lg"
+  >
+    Enviar solicitud de consulta
+  </button>
+</form>
 
                 <p className="text-xs text-muted-foreground text-center">
                   Al suscribirte, aceptas nuestra{" "}
