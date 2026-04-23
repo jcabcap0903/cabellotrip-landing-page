@@ -42,23 +42,26 @@ export function HeroSection() {
               con guías locales expertos y experiencias únicas.
             </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                size="lg" 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-14 text-base group"
-              >
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Button 
+              asChild // <--- Esto es clave para que el botón se comporte como un link
+              size="lg" 
+              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-14 text-base group"
+            >
+              <Link href="#contact"> {/* El link apunta al id de tu formulario */}
                 Reserva tu Consulta
                 <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="rounded-full px-8 h-14 text-base border-foreground/20 hover:bg-foreground/5"
-              >
-                Ver Itinerarios
-              </Button>
-            </div>
+              </Link>
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="rounded-full px-8 h-14 text-base border-foreground/20 hover:bg-foreground/5"
+            >
+              Ver Itinerarios
+            </Button>
+          </div>
 
             {/* Stats */}
             <div className="flex flex-wrap gap-6 sm:gap-8 lg:gap-12 pt-6 border-t border-border/50">
